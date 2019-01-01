@@ -7,6 +7,14 @@
     "react-dom": "^16.7.0",
     "react-scripts": "2.1.2"
   },
+  "devDependencies": {
+    "@types/jest": "^23.3.11",
+    "@types/node": "^10.12.18",
+    "@types/react": "^16.7.18",
+    "@types/react-dom": "^16.0.11",
+    "node-sass": "^4.11.0",
+    "typescript": "^3.2.2"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
