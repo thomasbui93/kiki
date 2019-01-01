@@ -2,7 +2,7 @@ $footer-height: 100px !default;
 
 html,
 body,
-#root {
+.root {
   height: 100%;
   margin: 0;
 }
@@ -14,7 +14,7 @@ body,
 
 .footer {
   height: $footer-height;
-  background-color: $primary-color;
-  color: #fff;
   line-height: $footer-height;
+  color: #fff;
+  background-color: $primary-color;
 }

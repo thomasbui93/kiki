@@ -4,6 +4,7 @@ import { MemoryRouter } from 'react-router'
 import { mount } from 'enzyme'
 
 import { Navigation } from './Navigation'
+import { HamburgerMenu } from './HamburgerMenu';
 
 describe('Navigation', () => {
   const mockSetNavigation = (isExpanded: boolean) => true
@@ -38,7 +39,7 @@ describe('Navigation', () => {
         <Navigation isExpanded={true} setNavigation={mock.mockSetNavigation}/>
       </MemoryRouter>
     )
-    navigation.find('.toggle').simulate('click')
+    navigation.find(HamburgerMenu).simulate('click')
     expect(spy).toHaveBeenCalledWith(false)
   })
 })
