@@ -1,0 +1,25 @@
+$displays: none, inline, inline-block, block, table, table-row, table-cell, flex, inline-flex !default;
+$text-positions: left, right, center!default;
+$float-positions: left, right !default;
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @each $value in $displays {
+      .display#{$infix}-#{$value} { display: $value !important; }
+    }
+  }
+}
+
+@each $text-display in $text-positions {
+  .text-#{$text-display} {
+    text-align: $text-display;
+  }
+}
+
+@each $float-position in $float-positions {
+  .float-#{$float-position} {
+    float: $float-position;
+  }
+}

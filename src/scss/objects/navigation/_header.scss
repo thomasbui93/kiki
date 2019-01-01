@@ -1,0 +1,28 @@
+$navigation-padding: 1rem!default;
+
+.navigation {
+  position: relative;
+  background-color: $primary-color;
+  color: hsla(0,0%,100%,.75);
+  padding-bottom: $navigation-padding;
+  padding-top: $navigation-padding;
+  z-index: index($zIndexes, header);
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.menu-item {
+  margin: 0 $global-gapping-unit;
+
+  &__link {
+    display: inline-flex;
+
+    a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+  }
+}

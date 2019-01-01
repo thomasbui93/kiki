@@ -1,0 +1,20 @@
+$footer-height: 100px !default;
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+.layout {
+  min-height: 100%;
+  margin: 0 auto (-$footer-height);
+}
+
+.footer {
+  height: $footer-height;
+  background-color: $primary-color;
+  color: #fff;
+  line-height: $footer-height;
+}
