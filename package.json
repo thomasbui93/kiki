@@ -27,11 +27,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage --env=jsdom --watchAll=false",
     "eject": "react-scripts eject",
     "stylelint": "stylelint --syntax scss \"app/scss/**/*.scss\"",
     "scss-lint": "stylelint src/scss/**/*.scss --syntax scss --fix",
-    "clean-code": "tslint -c tslint.json -p tsconfig.json --fix"
+    "lint": "tslint -c tslint.json -p tsconfig.json --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
