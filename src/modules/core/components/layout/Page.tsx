@@ -7,7 +7,7 @@ export interface InterfacePageProps extends RouteProps {
   description: string,
 }
 
-export class Page extends React.Component<InterfacePageProps> {
+export class Page extends React.PureComponent<InterfacePageProps> {
   public render() {
     const { title, description, ...props} = this.props as InterfacePageProps
     return <div className={`content-wrapper ${title.toLocaleLowerCase().split(' ').join('-')}`}>

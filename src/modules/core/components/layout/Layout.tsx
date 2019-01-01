@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Navigation } from '../navigation/Navigation'
 
-export class Layout extends React.Component {
+export class Layout extends React.PureComponent {
   public state = {
     isNavigationDisplay: false,
     isMobile: false

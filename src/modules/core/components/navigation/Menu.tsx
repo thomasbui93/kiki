@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-
 import { InterfaceMenuItem } from '../../../../services/navigation/menu'
 
 export interface InterfaceMenuState {
@@ -13,7 +12,7 @@ export interface InterfaceMenuProps {
   menuItems: InterfaceMenuItem[]
 }
 
-export class Menu extends React.Component<InterfaceMenuProps, InterfaceMenuState>{
+export class Menu extends React.PureComponent<InterfaceMenuProps, InterfaceMenuState>{
   constructor(props: InterfaceMenuProps) {
     super(props)
     this.state = {

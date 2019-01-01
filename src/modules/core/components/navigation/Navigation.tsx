@@ -1,14 +1,14 @@
 import * as React from 'react'
 import { InterfaceMenuItem, getMenuItems } from '../../../../services/navigation/menu'
 import { Menu } from './Menu'
-import { HamburgerMenu } from './HamburgerMenu';
+import { HamburgerMenu } from './HamburgerMenu'
 
 export interface InterfaceNavigationProps {
   setNavigation: (isExpanded: boolean) => void,
   isExpanded: boolean
 }
 
-export class Navigation extends React.Component<InterfaceNavigationProps>{
+export class Navigation extends React.PureComponent<InterfaceNavigationProps>{
   constructor(props: InterfaceNavigationProps) {
     super(props)
     this.toggleNavigation = this.toggleNavigation.bind(this)
