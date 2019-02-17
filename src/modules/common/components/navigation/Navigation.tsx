@@ -1,15 +1,15 @@
 import * as React from 'react'
-import { InterfaceMenuItem, getMenuItems } from '../../../../services/navigation/menu'
+import { MenuItem, getMenuItems } from '../../../../services/cms/menu'
 import { Menu } from './Menu'
 import { HamburgerMenu } from './HamburgerMenu'
 
-export interface InterfaceNavigationProps {
+export type NavigationProps = {
   setNavigation: (isExpanded: boolean) => void,
   isExpanded: boolean
 }
 
-export class Navigation extends React.PureComponent<InterfaceNavigationProps>{
-  constructor(props: InterfaceNavigationProps) {
+export class Navigation extends React.PureComponent<NavigationProps>{
+  constructor(props: NavigationProps) {
     super(props)
     this.toggleNavigation = this.toggleNavigation.bind(this)
   }
@@ -17,7 +17,7 @@ export class Navigation extends React.PureComponent<InterfaceNavigationProps>{
     this.props.setNavigation(!this.props.isExpanded)
   }
   public render() {
-    const menuItems: InterfaceMenuItem[] = getMenuItems()
+    const menuItems: MenuItem[] = getMenuItems()
     return (
       <div className={`navigation ${this.props.isExpanded ? '' : 'is-collapsed'}`}>
         <div className='navigation__header'>

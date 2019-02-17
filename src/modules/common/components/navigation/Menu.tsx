@@ -1,19 +1,19 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-import { InterfaceMenuItem } from '../../../../services/navigation/menu'
+import { MenuItem } from '../../../../services/cms/menu'
 
-export interface InterfaceMenuState {
+export type MenuState = {
   menuItems: {
     [key: string]: boolean
   }
 }
 
-export interface InterfaceMenuProps {
-  menuItems: InterfaceMenuItem[]
+export type MenuProps = {
+  menuItems: MenuItem[]
 }
 
-export class Menu extends React.PureComponent<InterfaceMenuProps, InterfaceMenuState>{
-  constructor(props: InterfaceMenuProps) {
+export class Menu extends React.PureComponent<MenuProps, MenuState>{
+  constructor(props: MenuProps) {
     super(props)
     this.state = {
       menuItems: this.getInitialStateFromProps()
@@ -30,7 +30,7 @@ export class Menu extends React.PureComponent<InterfaceMenuProps, InterfaceMenuS
     return menuItemsState
   }
 
-  public renderMenuItem(menuItem: InterfaceMenuItem) {
+  public renderMenuItem(menuItem: MenuItem) {
     const { key } = menuItem
     const isOpen = this.state.menuItems[key]
     return <div className='menu-item' key={key}>
@@ -52,7 +52,7 @@ export class Menu extends React.PureComponent<InterfaceMenuProps, InterfaceMenuS
     </div>
   }
 
-  public hasChildren(menuItem: InterfaceMenuItem) {
+  public hasChildren(menuItem: MenuItem) {
     return menuItem.children && menuItem.children.length > 0
   }
 
@@ -64,7 +64,7 @@ export class Menu extends React.PureComponent<InterfaceMenuProps, InterfaceMenuS
     })
   }
 
-  public renderMenu(menuItems: InterfaceMenuItem[]) {
+  public renderMenu(menuItems: MenuItem[]) {
     return menuItems.map(this.renderMenuItem.bind(this))
   }
 

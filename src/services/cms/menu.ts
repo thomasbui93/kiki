@@ -1,11 +1,11 @@
-export interface InterfaceMenuItem {
+export type MenuItem = {
   key: string,
   title: string,
   url: string,
-  children?: InterfaceMenuItem[]
+  children?: MenuItem[]
 }
 
-export const getMenuItems = (): InterfaceMenuItem[]=> {
+export const getMenuItems = (): MenuItem[]=> {
   return [
     {
       key: '1',
