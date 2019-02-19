@@ -5,6 +5,7 @@ import { Page } from './modules/common/components/layout/Page'
 import { NotFoundPage } from './modules/common/components/static/page/NotFoundPage'
 import { Footer } from './modules/common/components/layout/Footer'
 import { MediaQuery } from './modules/common/components/media-query/MediaQuery'
+import { ConnectedLoginPage } from './modules/authentication/page/LoginPage'
 
 const App = () => (
   <React.Fragment>
@@ -14,7 +15,7 @@ const App = () => (
           <Switch>
             <Page title='Login'
               description='Please login to use our application'
-              path='/login' component={NotFoundPage} />
+              path='/login' component={ConnectedLoginPage} />
             <Page title='Not found page'
               description='Sorry we could not found your page'
               component={NotFoundPage} />
