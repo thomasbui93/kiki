@@ -20,9 +20,9 @@ export const isValidBound = (width: number, range: MediaRange): boolean => {
   const [bound, leftBound] = range
   switch (leftBound) {
     case 'upper':
-      return bound > width;
+      return bound > width
     case 'lower':
-      return bound < width;
+      return bound < width
     default:
       return width > Math.min(bound, leftBound)
         && width < Math.max(bound, leftBound)
@@ -35,7 +35,7 @@ export class MediaQuery extends React.Component<MediaQueryProps, MediaQueryState
 
   public static defaultProps = {
     mediaMapping
-  };
+  }
 
   public state = {
     mediaQuery: [],

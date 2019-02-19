@@ -1,10 +1,10 @@
-import React, { SFC } from 'react';
-import { Helmet } from 'react-helmet';
-import { Route, RouteProps } from 'react-router';
+import React, { SFC } from 'react'
+import { Helmet } from 'react-helmet'
+import { Route, RouteProps } from 'react-router'
 
 export interface InterfacePageProps extends RouteProps {
-  title: string;
-  description: string;
+  title: string
+  description: string
 }
 
 export const Page: SFC<InterfacePageProps> = ({
@@ -25,4 +25,4 @@ export const Page: SFC<InterfacePageProps> = ({
     </Helmet>
     <Route {...props} />
   </div>
-);
+)

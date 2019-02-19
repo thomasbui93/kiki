@@ -3,8 +3,8 @@ import { BrowserRouter, Switch } from 'react-router-dom'
 import { Layout } from './modules/common/components/layout/Layout'
 import { Page } from './modules/common/components/layout/Page'
 import { NotFoundPage } from './modules/common/components/static/page/NotFoundPage'
-import { Footer } from './modules/common/components/layout/Footer';
-import { MediaQuery } from './modules/common/components/media-query/MediaQuery';
+import { Footer } from './modules/common/components/layout/Footer'
+import { MediaQuery } from './modules/common/components/media-query/MediaQuery'
 
 const App = () => (
   <React.Fragment>

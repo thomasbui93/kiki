@@ -4,6 +4,6 @@ export const mediaMapping = new Map([
   ['lg', [769, 1441]],
   ['xlg', [1441, 'lower']]
 ])
-export const MOBILE_VIEWPORTS = ['ms', 'md'];
-export const MEDIUM = ['lg'];
-export const EXTRA_VIEWPORTS = ['xlg'];
+export const MOBILE_VIEWPORTS = ['ms', 'md']
+export const MEDIUM = ['lg']
+export const EXTRA_VIEWPORTS = ['xlg']

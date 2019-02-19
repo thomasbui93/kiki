@@ -4,7 +4,7 @@ import { MemoryRouter } from 'react-router'
 import { mount } from 'enzyme'
 
 import { Navigation } from './Navigation'
-import { HamburgerMenu } from './HamburgerMenu';
+import { HamburgerMenu } from './HamburgerMenu'
 
 describe('Navigation', () => {
   const mockSetNavigation = (isExpanded: boolean) => true

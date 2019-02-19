@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Navigation } from '../navigation/Navigation'
-import { MediaQueryContext } from '../media-query/MediaQuery';
-import { MOBILE_VIEWPORTS } from '../../../../services/cms/media-query';
+import { MediaQueryContext } from '../media-query/MediaQuery'
+import { MOBILE_VIEWPORTS } from '../../../../services/cms/media-query'
 
 export type LayoutState = {
   isNavigationDisplay: boolean
