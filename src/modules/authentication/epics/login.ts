@@ -1,9 +1,9 @@
 import { from, of} from 'rxjs'
 import { ofType, ActionsObservable } from 'redux-observable'
-import { switchMap, map, catchError } from 'rxjs/operators'
+import { switchMap, map, catchError, flatMap } from 'rxjs/operators'
 import { requestingAuthentication } from '../constants/login'
 import { authenticate } from '../../../services/authentication/login'
-import { receivedAuthenticationAction, failAuthenticationAction } from '../actions/login'
+import { receivedAuthenticationAction, failAuthenticationAction, saveLoginTokenAction } from '../actions/login'
 import { ErrorData } from '../../../services/error/error-message'
 
 export const loginEpic = (action$: ActionsObservable<any>) => action$.pipe(
@@ -11,7 +11,7 @@ export const loginEpic = (action$: ActionsObservable<any>) => action$.pipe(
   switchMap(
     ({ payload }) => from(authenticate(payload))
     .pipe(
-      map((isLogin) => receivedAuthenticationAction(isLogin)),
+      flatMap((token) => [receivedAuthenticationAction(!!token), saveLoginTokenAction(token)]),
       catchError((error: ErrorData) => of(failAuthenticationAction(error)))
     )
   )

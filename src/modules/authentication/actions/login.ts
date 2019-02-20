@@ -1,5 +1,5 @@
 import { LoginCredential } from '../components/login/LoginComponent'
-import { requestingAuthentication, receivedAuthentication, failedAuthentication } from '../constants/login'
+import { requestingAuthentication, receivedAuthentication, failedAuthentication, saveLoginToken } from '../constants/login'
 import { ErrorData } from '../../../services/error/error-message'
 
 export const requestAuthenticationAction = (credential: LoginCredential) => ({
@@ -21,5 +21,12 @@ export const failAuthenticationAction = (error: ErrorData) => ({
   payload: {
     isError: true,
     errorData: error
+  }
+})
+
+export const saveLoginTokenAction = (token: string) => ({
+  type: saveLoginToken,
+  payload: {
+    token
   }
 })
