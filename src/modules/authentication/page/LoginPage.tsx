@@ -1,4 +1,11 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
+import {
+  EuiFlexGroup,
+  EuiFlexItem,
+  EuiTitle,
+  EuiSpacer,
+  EuiText
+} from '@elastic/eui'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { boundMethod } from 'autobind-decorator'
@@ -19,14 +26,28 @@ export class LoginPage extends Component<LoginPageProps & LoginState> {
 
   public render() {
     return (
-      <Fragment>
-        <div>Login In Your Account</div>
-        <LoginComponent
-          isRequesting={this.props.isRequesting}
-          initialData={{email: '', password: ''}}
-          externalErrors={[this.props.error]}
-          submitAction={this.submitAction}/>
-      </Fragment>
+      <div>
+        <EuiFlexGroup
+          direction="column"
+          alignItems="center"
+          gutterSize="none">
+          <EuiFlexItem style={{ minWidth: 400 }}>
+            <EuiTitle>
+              <EuiText textAlign="center">
+                <h1>Login In Your Account</h1>
+              </EuiText>
+            </EuiTitle>
+          </EuiFlexItem>
+          <EuiSpacer />
+          <EuiFlexItem style={{ minWidth: 400 }}>
+            <LoginComponent
+              isRequesting={this.props.isRequesting}
+              initialData={{email: '', password: ''}}
+              externalErrors={[this.props.error]}
+              submitAction={this.submitAction}/>
+          </EuiFlexItem>
+        </EuiFlexGroup>
+      </div>
     )
   }
 }

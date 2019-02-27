@@ -20,7 +20,7 @@ export const failAuthenticationAction = (error: ErrorData) => ({
   type: failedAuthentication,
   payload: {
     isError: true,
-    errorData: error
+    error: error.message
   }
 })
 
