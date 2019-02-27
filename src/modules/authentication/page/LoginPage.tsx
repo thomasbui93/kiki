@@ -13,15 +13,24 @@ import { LoginComponent, LoginCredential } from '../components/login/LoginCompon
 import { requestAuthenticationAction } from '../actions/login'
 import { RootStore } from '../../../types/store'
 import { LoginState } from '../reducers/login'
+import { ConnectedRouterProps } from 'connected-react-router'
 
 export type LoginPageProps = {
-  authenticate: (credential: LoginCredential) => void
+  authenticate: (credential: LoginCredential) => void,
+  authenticatedRedirect: () => void
 }
 
-export class LoginPage extends Component<LoginPageProps & LoginState> {
+export type LoginPageConnectedProps = LoginPageProps & LoginState & ConnectedRouterProps
+export class LoginPage extends Component<LoginPageConnectedProps> {
   @boundMethod
   public submitAction(credential: LoginCredential) {
     this.props.authenticate(credential)
+  }
+
+  public componentDidUpdate() {
+    if (this.props.isLogin) {
+      this.props.history.push('/')
+    }
   }
 
   public render() {
