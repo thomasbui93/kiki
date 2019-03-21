@@ -41,12 +41,14 @@ const TextInput: React.SFC<TextInputProps> = ({ type, id, label, touched, error,
     <EuiFormRow label={label}
       isInvalid={isValid}
       error={errorMessage}
-      className={classes}>
+      className={classes}
+      fullWidth={true}>
       <Input value={value}
         onChange={onChange}
         onBlur={onBlur}
         name={id}
-        isInvalid={!!error} />
+        isInvalid={!!error}
+        fullWidth={true}/>
     </EuiFormRow>
   )
 }

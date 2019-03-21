@@ -16,6 +16,8 @@ import { LoginState } from '../reducers/login'
 import { ConnectedRouterProps } from 'connected-react-router'
 import { updateAuthToken } from '../../../services/storage/session'
 import { AuthState } from '../reducers/auth'
+import { MOBILE_VIEWPORTS } from '../../../services/cms/media-query'
+import { MediaQueryContext } from '../../common/components/media-query/MediaQuery'
 
 export type LoginPageProps = {
   authenticate: (credential: LoginCredential) => void,
@@ -24,6 +26,7 @@ export type LoginPageProps = {
 
 export type LoginPageConnectedProps = LoginPageProps & LoginState & ConnectedRouterProps & AuthState
 export class LoginPage extends Component<LoginPageConnectedProps> {
+  public static contextType = MediaQueryContext
   @boundMethod
   public submitAction(credential: LoginCredential) {
     this.props.authenticate(credential)
@@ -37,13 +40,14 @@ export class LoginPage extends Component<LoginPageConnectedProps> {
   }
 
   public render() {
+    const minWidth = MOBILE_VIEWPORTS.indexOf(this.context) > -1 ? 300: 400
     return (
       <div>
         <EuiFlexGroup
           direction="column"
           alignItems="center"
           gutterSize="none">
-          <EuiFlexItem style={{ minWidth: 400 }}>
+          <EuiFlexItem style={{ minWidth }}>
             <EuiTitle>
               <EuiText textAlign="center">
                 <h1>Login In Your Account</h1>
@@ -51,7 +55,7 @@ export class LoginPage extends Component<LoginPageConnectedProps> {
             </EuiTitle>
           </EuiFlexItem>
           <EuiSpacer />
-          <EuiFlexItem style={{ minWidth: 400 }}>
+          <EuiFlexItem style={{ minWidth }}>
             <LoginComponent
               isRequesting={this.props.isRequesting}
               initialData={{email: '', password: ''}}
