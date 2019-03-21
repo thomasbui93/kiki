@@ -3,7 +3,6 @@ import * as ReactDOM from 'react-dom'
 import { MemoryRouter, Route } from 'react-router'
 import { mount } from 'enzyme'
 import { Helmet } from 'react-helmet'
-
 import { Page } from './Page'
 
 describe('Page', () => {
@@ -13,7 +12,7 @@ describe('Page', () => {
     const div = document.createElement('div')
     ReactDOM.render(
       <MemoryRouter >
-        <Page title={title} description={description}/>
+        <Page title={title} description={description} isPrivate={false}/>
       </MemoryRouter>,
       div
     )
@@ -22,10 +21,9 @@ describe('Page', () => {
   it('should render Navigation and content element', () => {
     const page = mount(
       <MemoryRouter >
-        <Page title={title} description={description}/>
+        <Page title={title} description={description} isPrivate={true}/>
       </MemoryRouter>
     )
     expect(page.find(Helmet).length).toBe(1)
-    expect(page.find(Route).length).toBe(1)
   })
 })

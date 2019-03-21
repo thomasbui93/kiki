@@ -1,15 +1,19 @@
 import React, { SFC } from 'react'
 import { Helmet } from 'react-helmet'
-import { Route, RouteProps } from 'react-router'
+import { RouteProps } from 'react-router'
+import { PrivatePage } from '../route/PrivatePage'
+import { GuestPage } from '../route/GuestPage'
 
 export interface InterfacePageProps extends RouteProps {
   title: string
-  description: string
+  description: string,
+  isPrivate: boolean
 }
 
 export const Page: SFC<InterfacePageProps> = ({
   title,
   description,
+  isPrivate = false,
   ...props
 }: InterfacePageProps) => (
   <div
@@ -23,6 +27,6 @@ export const Page: SFC<InterfacePageProps> = ({
       <title>{title}</title>
       <meta name='description' content={description} />
     </Helmet>
-    <Route {...props} />
+    { isPrivate ? <PrivatePage {...props}/> : <GuestPage {...props}/> }
   </div>
 )
