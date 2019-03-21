@@ -14,9 +14,11 @@ const App = () => (
         <Layout>
           <Switch>
             <Page title='Login'
+              isPrivate={false}
               description='Please login to use our application'
               path='/login' component={ConnectedLoginPage} />
             <Page title='Not found page'
+              isPrivate={true}
               description='Sorry we could not found your page'
               component={NotFoundPage} />
           </Switch>

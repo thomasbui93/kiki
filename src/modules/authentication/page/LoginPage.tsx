@@ -14,13 +14,15 @@ import { requestAuthenticationAction } from '../actions/login'
 import { RootStore } from '../../../types/store'
 import { LoginState } from '../reducers/login'
 import { ConnectedRouterProps } from 'connected-react-router'
+import { updateAuthToken } from '../../../services/storage/session'
+import { AuthState } from '../reducers/auth'
 
 export type LoginPageProps = {
   authenticate: (credential: LoginCredential) => void,
   authenticatedRedirect: () => void
 }
 
-export type LoginPageConnectedProps = LoginPageProps & LoginState & ConnectedRouterProps
+export type LoginPageConnectedProps = LoginPageProps & LoginState & ConnectedRouterProps & AuthState
 export class LoginPage extends Component<LoginPageConnectedProps> {
   @boundMethod
   public submitAction(credential: LoginCredential) {
@@ -29,6 +31,7 @@ export class LoginPage extends Component<LoginPageConnectedProps> {
 
   public componentDidUpdate() {
     if (this.props.isLogin) {
+      updateAuthToken(this.props.token)
       this.props.history.push('/')
     }
   }
@@ -61,12 +64,13 @@ export class LoginPage extends Component<LoginPageConnectedProps> {
   }
 }
 
-export const mapStateToProps = ({ login }: RootStore) => {
+export const mapStateToProps = ({ login, auth }: RootStore) => {
   return {
     isLogin: login.isLogin,
     isError: login.isError,
     isRequesting: login.isRequesting,
-    error: login.error
+    error: login.error,
+    token: auth.token
   }
 }
 

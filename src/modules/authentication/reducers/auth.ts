@@ -1,12 +1,13 @@
 import { ActionType } from './../../../types/redux'
 import { saveLoginToken } from '../constants/login'
+import { getAuthToken } from '../../../services/storage/session'
 
 export type AuthState = {
   token: string
 }
 
 export const initialAuthState = {
-  token: ''
+  token: getAuthToken() || ''
 }
 
 export const authReducers =(state = initialAuthState, {type, payload}: ActionType): AuthState => {
