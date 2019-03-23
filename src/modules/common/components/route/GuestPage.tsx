@@ -4,6 +4,16 @@ import { isAuthenticationExist } from '../../../../services/storage/session'
 
 export const GuestPage: SFC<RouteProps> = (props: RouteProps) => (
   <Fragment>
-  { isAuthenticationExist() ? <Redirect to='/'/> : <Route {...props}/> }
+  {
+    isAuthenticationExist() ? (
+      <Redirect
+        to={{
+          pathname: '/',
+          state: { from: props.location }
+        }}
+      />
+    ) : <Route {...props}/>
+  }
   </Fragment>
 )
+

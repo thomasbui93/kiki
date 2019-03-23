@@ -6,6 +6,7 @@ import { NotFoundPage } from './modules/common/components/static/page/NotFoundPa
 import { Footer } from './modules/common/components/layout/Footer'
 import { MediaQuery } from './modules/common/components/media-query/MediaQuery'
 import { ConnectedLoginPage } from './modules/authentication/page/LoginPage'
+import { DashboardPage } from './modules/dashboard/page/DashboardPage'
 
 const App = () => (
   <React.Fragment>
@@ -13,12 +14,19 @@ const App = () => (
       <MediaQuery>
         <Layout>
           <Switch>
+            <Page title='Dashboard'
+              isPrivate={true}
+              description='Analytics Dashboard'
+              path='/'
+              exact={true}
+              component={DashboardPage} />
             <Page title='Login'
               isPrivate={false}
               description='Please login to use our application'
-              path='/login' component={ConnectedLoginPage} />
+              path='/login'
+              component={ConnectedLoginPage} />
             <Page title='Not found page'
-              isPrivate={true}
+              isPrivate={false}
               description='Sorry we could not found your page'
               component={NotFoundPage} />
           </Switch>

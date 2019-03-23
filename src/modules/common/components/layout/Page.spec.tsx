@@ -1,9 +1,10 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { MemoryRouter, Route } from 'react-router'
+import { MemoryRouter } from 'react-router'
 import { mount } from 'enzyme'
 import { Helmet } from 'react-helmet'
 import { Page } from './Page'
+import { GuestPage } from '../route/GuestPage'
 
 describe('Page', () => {
   const title = 'Title'
@@ -12,7 +13,11 @@ describe('Page', () => {
     const div = document.createElement('div')
     ReactDOM.render(
       <MemoryRouter >
-        <Page title={title} description={description} isPrivate={false}/>
+        <Page path='/'
+          title={title}
+          description={description}
+          isPrivate={false}
+          exact={true}/>
       </MemoryRouter>,
       div
     )
@@ -21,9 +26,26 @@ describe('Page', () => {
   it('should render Navigation and content element', () => {
     const page = mount(
       <MemoryRouter >
-        <Page title={title} description={description} isPrivate={true}/>
+        <Page path='/'
+          title={title}
+          description={description}
+          isPrivate={false}
+          exact={true}/>
       </MemoryRouter>
     )
     expect(page.find(Helmet).length).toBe(1)
+  })
+
+  it('should render GuestPage and content element', () => {
+    const page = mount(
+      <MemoryRouter >
+        <Page path='/a'
+          title={title}
+          description={description}
+          isPrivate={false}
+          exact={true}/>
+      </MemoryRouter>
+    )
+    expect(page.find(GuestPage).length).toBe(1)
   })
 })
