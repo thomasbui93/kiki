@@ -1,1 +1,1 @@
-# Kiki File Management System frontend.
+# Kiki Analytics Dashboard.
