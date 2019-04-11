@@ -14,8 +14,8 @@ body,
 
 .footer {
   height: $footer-height;
+  margin-top: $footer-height;
   line-height: $footer-height;
   color: #fff;
   background-color: $primary-color;
-  margin-top: $footer-height;
 }

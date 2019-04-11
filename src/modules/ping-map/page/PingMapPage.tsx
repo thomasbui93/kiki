@@ -1,13 +1,14 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import { PingMap } from '../components/PingMap'
+import { MapSearch } from '../components/MapSearch'
+import { Coordinate } from '../../../types/common/Coordinate'
 
-export class PingMapPage extends React.Component {
-  public render() {
-    return (
-      <Fragment>
-        <h1>Realtime Ping Map</h1>
-        <PingMap />
-      </Fragment>
-    )
-  }
+export const PingMapPage = () => {
+  const [coordinate, setCoordinate] = useState<Coordinate>([51.505, -0.09])
+  return (
+    <Fragment>
+      <PingMap center={coordinate}/>
+      <MapSearch zoomToLocation={setCoordinate}/>
+    </Fragment>
+  )
 }

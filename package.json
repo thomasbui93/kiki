@@ -4,6 +4,7 @@
   "dependencies": {
     "@elastic/datemath": "^5.0.2",
     "@elastic/eui": "^9.5",
+    "@types/googlemaps": "^3.30.19",
     "@types/yup": "^0.26.9",
     "autobind-decorator": "^2.4.0",
     "connected-react-router": "^6.1.0",
