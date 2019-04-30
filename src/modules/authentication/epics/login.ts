@@ -9,7 +9,7 @@ import { ErrorData } from '../../../services/error/error-message'
 export const loginEpic = (action$: ActionsObservable<any>) => action$.pipe(
   ofType(requestingAuthentication),
   switchMap(
-    ({ payload }) => from(authenticate(payload))
+    (data) => from(authenticate(data.payload.credential))
     .pipe(
       flatMap((token) => [receivedAuthenticationAction(!!token), saveLoginTokenAction(token)]),
       catchError((error: ErrorData) => of(failAuthenticationAction(error)))
