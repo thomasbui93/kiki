@@ -7,6 +7,7 @@ import { Footer } from './modules/common/components/layout/Footer'
 import { MediaQuery } from './modules/common/components/media-query/MediaQuery'
 import { ConnectedLoginPage } from './modules/authentication/page/LoginPage'
 import { DashboardPage } from './modules/dashboard/page/DashboardPage'
+import { PingMapPage } from './modules/ping-map/page/PingMapPage'
 
 const App = () => (
   <React.Fragment>
@@ -20,6 +21,12 @@ const App = () => (
               path='/'
               exact={true}
               component={DashboardPage} />
+            <Page title='Realtime Ping Map'
+              isPrivate={true}
+              description='Ping Map tracking'
+              path='/ping-map'
+              exact={true}
+              component={PingMapPage} />
             <Page title='Login'
               isPrivate={false}
               description='Please login to use our application'
