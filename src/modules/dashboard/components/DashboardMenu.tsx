@@ -17,6 +17,17 @@ export class DashboardMenu extends Component<any, any> {
           />
         </DashboardItem>
       </EuiFlexItem>
+      <EuiFlexItem>
+        <DashboardItem
+          link="/projects"
+          title="Project Management"
+          sup="Project management">
+          <EuiIcon
+            type="indexManagementApp"
+            size="xl"
+          />
+        </DashboardItem>
+      </EuiFlexItem>
   </EuiFlexGrid>
   }
 }
