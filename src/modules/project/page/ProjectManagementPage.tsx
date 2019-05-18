@@ -1,21 +1,34 @@
 import React from 'react'
-import { getProjects } from '../../../services/key-management/project'
-import { useReactFetchHook } from '../../../hooks/ReactFetchHook'
 import { ProjectProps } from '../types/ProjectProps'
 import { ProjectItem } from '../components/ProjectItem'
 import { Spiner } from '../../common/components/core/loaders/Spiner'
-import { EuiFlexGrid } from '@elastic/eui'
+import { EuiFlexGrid, EuiEmptyPrompt, EuiButton } from '@elastic/eui'
+import { useDataProvider } from '../../../hooks/DataProviderHook'
+import { getProjects, PROJECT_LIST_URL } from '../../../services/key-management/project'
 
 export const ProjectManagementPage = () => {
-  const [isError, isLoading, list] = useReactFetchHook<ProjectProps>(getProjects)
+  const { data } = useDataProvider<ProjectProps[]>(PROJECT_LIST_URL, [], getProjects)
+  const list = data.data as ProjectProps[]
   return (
-    <React.Fragment>
-      <h1>Available Projects</h1>
-      { isLoading ? <Spiner /> : ''}
-      { isError ? 'Error occurred': ''}
+    <>
+      { data.isLoading ? <Spiner /> : ''}
+      { data.isError ? 'Error occurred': ''}
       <EuiFlexGrid gutterSize="s" columns={3}>
-        { typeof list !== 'boolean' ? list.map((item) => <ProjectItem {...item} key={item.id}/>): ''}
+        { list.map((item:any) => <ProjectItem {...item} key={item.id}/>) }
+        {
+          list.length === 0 ?
+          <EuiEmptyPrompt
+            iconType="editorStrike"
+            title={<h2>You have no projects</h2>}
+            body={
+              <>
+                <p>You&rsquo;ll need create project to track your data</p>
+              </>
+            }
+            actions={<EuiButton color="primary" fill={true}>Create</EuiButton>}
+          /> : ''
+        }
       </EuiFlexGrid>
-    </React.Fragment>
+    </>
   )
 }
