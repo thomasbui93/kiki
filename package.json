@@ -27,7 +27,8 @@
     "redux-observable": "^1.0.0",
     "reset-css": "^4.0.1",
     "rxjs": "^6.3.3",
-    "yup": "^0.26.10"
+    "yup": "^0.26.10",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "@types/enzyme": "^3.1.15",
@@ -60,7 +61,9 @@
     "test": "react-scripts test --coverage --env=jsdom --watchAll=false",
     "eject": "react-scripts eject",
     "stylelint": "stylelint src/scss/**/*.scss --syntax scss --fix",
-    "lint": "tslint -c tslint.json -p tsconfig.json --fix"
+    "lint": "tslint -c tslint.json -p tsconfig.json --fix",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -76,5 +79,6 @@
       "pre-push": "yarn test && yarn lint && yarn stylelint"
     }
   },
-  "proxy": "http://localhost:8000"
+  "proxy": "http://localhost:8000",
+  "snyk": true
 }
