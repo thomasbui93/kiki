@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "dependencies": {
     "@elastic/datemath": "^5.0.2",
-    "@elastic/eui": "^9.5",
+    "@elastic/eui": "^33.0.0",
     "@types/yup": "^0.26.9",
     "autobind-decorator": "^2.4.0",
     "axios": "^0.18.1",
