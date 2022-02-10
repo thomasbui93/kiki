@@ -6,7 +6,7 @@
     "@elastic/eui": "^9.5",
     "@types/yup": "^0.26.9",
     "autobind-decorator": "^2.4.0",
-    "axios": "^0.18.1",
+    "axios": "^0.20.0",
     "connected-react-router": "^6.1.0",
     "decko": "^1.2.0",
     "enzyme": "^3.8.0",
