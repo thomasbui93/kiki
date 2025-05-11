@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "dependencies": {
     "@elastic/datemath": "^5.0.2",
-    "@elastic/eui": "^9.5",
+    "@elastic/eui": "^27.2.0",
     "@types/yup": "^0.26.9",
     "autobind-decorator": "^2.4.0",
     "axios": "^0.18.1",
@@ -19,15 +19,15 @@
     "react": "^16.8",
     "react-dom": "^16.8",
     "react-helmet": "^5.2.0",
-    "react-redux": "^6.0.0",
-    "react-router": "^5",
-    "react-router-dom": "^5",
+    "react-redux": "^9.0.0",
+    "react-router": "^6.0.0",
+    "react-router-dom": "^6.0.0",
     "react-scripts": "2.1.2",
     "redux": "^4.0.1",
     "redux-observable": "^1.0.0",
     "reset-css": "^4.0.1",
     "rxjs": "^6.3.3",
-    "yup": "^0.26.10",
+    "yup": "^1.0.0",
     "snyk": "^1.189.0"
   },
   "devDependencies": {
